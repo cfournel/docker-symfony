@@ -16,7 +16,6 @@ services:
             - 9000:9000
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
-            - ./logs/symfony:/var/www/symfony/app/logs
     nginx:
         build: nginx
         ports:
@@ -28,7 +27,7 @@ services:
     elk:
         image: willdurand/elk
         ports:
-            - 81:80
+            - 81:81
         volumes:
             - ./elk/logstash:/etc/logstash
             - ./elk/logstash/patterns:/opt/logstash/patterns
